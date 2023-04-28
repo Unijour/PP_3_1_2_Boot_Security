@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>New user</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/users}" th:object="${user}">
+  <label for="username">Enter name: </label>
+  <input type="text" th:field="*{username}" id="username"/>
+  <br/>
+  <label for="password">Enter password: </label>
+  <input type="text" th:field="*{password}" id="password"/>
+  <br/>
+  <label for="hobby">Enter hobby: </label>
+  <input type="text" th:field="*{hobby}" id="hobby"/>
+  <br/>
+  <label>
+    <select multiple="multiple" th:field="*{roles}">
+      <option th:each="role: ${rolesAtt}"
+              th:value="${role.id}"
+              th:text="${role.toString()}"></option>
+    </select>
+  </label>
+  <br/>
+  <input type="submit" value="Create"/>
+</form>
+
+</body>
+</html>
