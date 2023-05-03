@@ -15,9 +15,9 @@
 <a th:text="${user.getRoles()}" id="roles">VALUE</a>
 <br/>
 
-<a th:href="@{/users/admin/{id}/edit(id=${user.getId()})}">Edit</a>
+<a th:href="@{/admins/{id}/edit(id=${user.getId()})}">Edit</a>
 
-<form th:method="DELETE" th:action="@{/users/admin/{id}(id=${user.getId()})}">
+<form th:method="DELETE" th:action="@{/admins/{id}(id=${user.getId()})}">
     <input type="submit" value="Delete"/>
 </form>
 </body>
