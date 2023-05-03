@@ -8,7 +8,7 @@ import ru.kata.spring.boot_security.demo.repository.RoleRepository;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
 @Controller
-@RequestMapping("/admins")
+@RequestMapping("/admin")
 public class AdminController {
 
     private final UserService userService;
@@ -40,7 +40,7 @@ public class AdminController {
     @PostMapping
     public String create(@ModelAttribute("user") User user) {
         userService.saveUser(user);
-        return "redirect:/admins";
+        return "redirect:/admin";
     }
 
     @GetMapping("/{id}/edit")
@@ -53,12 +53,12 @@ public class AdminController {
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("user") User user) {
         userService.updateUser(user);
-        return "redirect:/admins";
+        return "redirect:/admin";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") long id) {
         userService.removeUserById(id);
-        return "redirect:/admins";
+        return "redirect:/admin";
     }
 }
